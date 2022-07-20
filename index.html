@@ -80,7 +80,7 @@
             borderSkipped: false,
             datalabels: {
               anchor: "end",
-              align: "top",
+              align: "right",
               color: "black",
               offset: 10,
               formatter: function (val) {
@@ -109,30 +109,30 @@
         };
       }
 
-      // plugins
-      const connectorLinesPlugin = {
-        id: "connectorLinesPlugin",
-        beforeDraw(chart, args, options) {
-          const {
-            ctx,
-            config,
-            scales: { x, y }
-          } = chart;
-          ctx.save();
-          ctx.strokeStyle = "silver";
-          const dataLength = config._config.data.datasets[0].data.length;
-          for (let i = 0; i <= dataLength - 2; i++) {
-            const lastVal = config._config.data.datasets[0].data[i][1];
-            ctx.strokeRect(
-              x.getPixelForValue(i),
-              y.getPixelForValue(lastVal),
-              x.getPixelForValue(0),
-              0
-            );
-          }
-          ctx.restore();
-        }
-      };
+      // // plugins
+      // const connectorLinesPlugin = {
+      //   id: "connectorLinesPlugin",
+      //   beforeDraw(chart, args, options) {
+      //     const {
+      //       ctx,
+      //       config,
+      //       scales: { x, y }
+      //     } = chart;
+      //     ctx.save();
+      //     ctx.strokeStyle = "silver";
+      //     const dataLength = config._config.data.datasets[0].data.length;
+      //     for (let i = 0; i <= dataLength - 2; i++) {
+      //       const lastVal = config._config.data.datasets[0].data[i][1];
+      //       ctx.strokeRect(
+      //         y.getPixelForValue(lastVal),
+      //         x.getPixelForValue(i),
+      //         2,
+      //         x.getPixelForValue(0)
+      //       );
+      //     }
+      //     ctx.restore();
+      //   }
+      // };
 
       // config
       const config = {
@@ -142,13 +142,17 @@
           plugins: {
             tooltip: { enabled: false }
           },
+          indexAxis: "y",
           scales: {
             y: {
               beginAtZero: true
             }
           }
         },
-        plugins: [connectorLinesPlugin, ChartDataLabels]
+        plugins: [
+          //connectorLinesPlugin,
+          ChartDataLabels
+        ]
       };
 
       // render init block
