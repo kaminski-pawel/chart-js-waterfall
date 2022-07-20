@@ -78,8 +78,7 @@
       function barColorCode() {
         return (ctx) => {
           const { start, end } = ctx.parsed._custom;
-
-          if (start === 0) {
+          if (ctx.index !== 0 && start === 0) {
             return "grey";
           } else if (start <= end) {
             return "rgba(57, 192, 192, 1)"; // green
