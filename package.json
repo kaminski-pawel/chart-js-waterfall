@@ -1,7 +1,7 @@
 {
   "name": "static",
   "version": "1.0.0",
-  "description": "This is a static template with no bundling",
+  "description": "This is a prototype of a horizontal waterfall chart",
   "main": "index.html",
   "scripts": {
     "start": "serve",
@@ -16,7 +16,7 @@
     "template",
     "codesandbox"
   ],
-  "author": "Ives van Hoorne",
+  "author": "Paweł Kamiński",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/codesandbox-app/static-template/issues"
